@@ -94,7 +94,6 @@ public class MenuBar extends LinearLayout implements PopupWindow.OnDismissListen
                         mCurrMenuButton.setSelect(false);
                     }
                     mCurrMenuButton = menuButton;
-                    Log.e("--------------",mCurrMenuButton.isSelected()+"");
                     selectPosition = (int) menuButton.getTag();
                     startAnimation();
 
