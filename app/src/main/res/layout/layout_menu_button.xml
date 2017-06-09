@@ -4,6 +4,7 @@
     android:id="@+id/rl_root"
     android:background="@color/colorWhite"
     android:layout_height="85px">
+
      <TextView
          android:id="@+id/tv_title"
          android:text="标题"
@@ -18,8 +19,14 @@
          android:id="@+id/tv_line"
          android:layout_alignParentRight="true"
          android:layout_centerVertical="true"
-         android:textColor="@color/public_line_color"
-         android:layout_width="1px"
+         android:background="@color/public_line_color"
+         android:layout_width="1.5px"
          android:layout_height="28px" />
+     <TextView
+         android:layout_alignParentBottom="true"
+         android:layout_centerVertical="true"
+         android:background="@color/public_line_color"
+         android:layout_width="match_parent"
+         android:layout_height="1.5px" />
 
 </RelativeLayout>

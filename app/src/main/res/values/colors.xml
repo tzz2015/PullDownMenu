@@ -37,4 +37,6 @@
     <color name="search_bg">#fca63f</color>
     <!--红色-->
     <color name="public_red">#fa4c49</color>
+
+    <color name="app_custom_popup_bottom_bg">#004C4C4C</color>
 </resources>
