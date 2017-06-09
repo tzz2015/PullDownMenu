@@ -57,10 +57,11 @@ public class MenuButton extends RelativeLayout {
                 }else {
                     selected=true;
                 }
+                setSelect(selected);
                 if(onSelectListener!=null){
                     onSelectListener.onSelect(MenuButton.this,selected);
                 }
-                setSelect(selected);
+
             }
         });
     }

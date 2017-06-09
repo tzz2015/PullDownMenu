@@ -3,6 +3,7 @@ package com.rongke.mifan.pulldownmenu;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -93,6 +94,7 @@ public class MenuBar extends LinearLayout implements PopupWindow.OnDismissListen
                         mCurrMenuButton.setSelect(false);
                     }
                     mCurrMenuButton = menuButton;
+                    Log.e("--------------",mCurrMenuButton.isSelected()+"");
                     selectPosition = (int) menuButton.getTag();
                     startAnimation();
 
@@ -113,7 +115,6 @@ public class MenuBar extends LinearLayout implements PopupWindow.OnDismissListen
 //			popupWindow.setBackgroundDrawable(mContext.getResources().getDrawable(R.color.transparent));
         }
 
-        UIHelper.setPopupWindowTouchModal(popupWindow, false);
         if (mCurrMenuButton.isSelected()) {
             if (!popupWindow.isShowing()) {
                 showPopup(selectPosition);
@@ -130,11 +131,8 @@ public class MenuBar extends LinearLayout implements PopupWindow.OnDismissListen
     }
     private void showPopup(int position) {
 
-        View tView = mPupViewList.get(selectPosition).getChildAt(0);
-        if (tView instanceof ViewBaseAction) {
-            ViewBaseAction f = (ViewBaseAction) tView;
-            f.show();
-        }
+
+
         if (popupWindow.getContentView() != mPupViewList.get(position)) {
             popupWindow.setContentView(mPupViewList.get(position));
         }
@@ -160,11 +158,7 @@ public class MenuBar extends LinearLayout implements PopupWindow.OnDismissListen
      * 隐藏对应的
      */
     private void hideView(){
-        View tView = mPupViewList.get(selectPosition).getChildAt(0);
-        if (tView instanceof ViewBaseAction) {
-            ViewBaseAction f = (ViewBaseAction) tView;
-            f.hide();
-        }
+
     }
 
     /**
@@ -180,7 +174,7 @@ public class MenuBar extends LinearLayout implements PopupWindow.OnDismissListen
 
     @Override
     public void onDismiss() {
-        popupWindow.setOnDismissListener(null);
+      //  popupWindow.setOnDismissListener(null);
         if (mCurrMenuButton != null) {
             mCurrMenuButton.setSelect(false);
         }
