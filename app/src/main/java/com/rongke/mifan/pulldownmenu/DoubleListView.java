@@ -44,7 +44,8 @@ public class DoubleListView extends LinearLayout {
         if (contentList == null || contentList.isEmpty()) {
             return;
         }
-        TextAdapter adapter = new TextAdapter(mContext, contentList, R.color.colorWhite, R.color.colorWhite);
+        TextAdapter adapter = new TextAdapter(mContext, contentList, R.color.public_gb_color, R.color.colorWhite);
+        adapter.showArrow(true);
         listView.setAdapter(adapter);
         adapter.setOnItemClickListener(new TextAdapter.OnItemClickListener() {
             @Override
@@ -56,7 +57,7 @@ public class DoubleListView extends LinearLayout {
                 adapter2.notifyDataSetChanged();
             }
         });
-        adapter2 = new TextAdapter(mContext, child, R.color.colorWhite, R.color.colorWhite);
+        adapter2 = new TextAdapter(mContext, child, R.color.public_gb_color, R.color.public_gb_color);
         listView2.setAdapter(adapter2);
         adapter2.setOnItemClickListener(new TextAdapter.OnItemClickListener() {
             @Override

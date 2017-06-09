@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -25,6 +27,7 @@ public class TextAdapter extends ArrayAdapter<String> {
     private View.OnClickListener onClickListener;
     private String selectedText = "";
     private OnItemClickListener mOnItemClickListener;
+    private boolean isShow;
 
     public TextAdapter(Context context, List<String> listData, int sId, int nId) {
         super(context, R.string.no_any, listData);
@@ -58,9 +61,10 @@ public class TextAdapter extends ArrayAdapter<String> {
             holder = new ViewHolder();
             convertView = LayoutInflater.from(mContext)
                     .inflate(R.layout.item_list, parent, false);
-            holder.llRoot= (LinearLayout) convertView.findViewById(R.id.ll_root);
+            holder.llRoot= (RelativeLayout) convertView.findViewById(R.id.ll_root);
             holder.tvTitle = (TextView) convertView.findViewById(R.id.tv_title);
             holder.tvLine = (TextView) convertView.findViewById(R.id.tv_line);
+            holder.ivArrow= (ImageView) convertView.findViewById(R.id.iv_arrow);
             AutoUtils.auto(convertView);
             convertView.setTag(holder);
         } else {
@@ -77,9 +81,16 @@ public class TextAdapter extends ArrayAdapter<String> {
         if(position==selectedPos){
             holder.llRoot.setBackgroundColor(mContext.getResources().getColor(selectedDrawble));
             holder.tvTitle.setTextColor(mContext.getResources().getColor(R.color.public_orange));
+            holder.ivArrow.setImageResource(R.mipmap.fenlei_rigth_huangse);
         }else {
             holder.llRoot.setBackgroundColor(mContext.getResources().getColor(normalDrawbleId));
             holder.tvTitle.setTextColor(mContext.getResources().getColor(R.color.color333333));
+            holder.ivArrow.setImageResource(R.mipmap.fenlei_rigth_huise);
+        }
+        if(isShow){
+            holder.ivArrow.setVisibility(View.VISIBLE);
+        }else {
+            holder.ivArrow.setVisibility(View.GONE);
         }
         convertView.setOnClickListener(onClickListener);
         return convertView;
@@ -87,10 +98,14 @@ public class TextAdapter extends ArrayAdapter<String> {
 
     private class ViewHolder {
         TextView tvTitle,tvLine;
-        LinearLayout llRoot;
+        RelativeLayout llRoot;
+        ImageView ivArrow;
     }
     public void reSetPosition(){
         selectedPos=0;
+    }
+    public void showArrow(boolean isShow){
+        this.isShow=isShow;
     }
 
 

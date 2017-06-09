@@ -180,7 +180,7 @@ public class MenuBar extends LinearLayout implements PopupWindow.OnDismissListen
 
     @Override
     public void onDismiss() {
-
+        popupWindow.setOnDismissListener(null);
         if (mCurrMenuButton != null) {
             mCurrMenuButton.setSelect(false);
         }
