@@ -3,7 +3,6 @@ package com.rongke.mifan.pulldownmenu;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -99,6 +98,7 @@ public class MenuBar extends LinearLayout implements PopupWindow.OnDismissListen
 
                 }
             });
+            AutoUtils.auto(menuButton);
             addView(menuButton);
 
 

@@ -3,7 +3,6 @@ package com.rongke.mifan.pulldownmenu;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        LinearLayout rootView = (LinearLayout) findViewById(R.id.activity_main);
         final MenuBar menuBar= (MenuBar) findViewById(R.id.mb_bar);
         List<String> title=new ArrayList<>();
         title.add("商圈");
